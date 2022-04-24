@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PreOrder Requests Page</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Param</th>
+            <th>Time</th>
+            <th>Value</th>
+        </tr>
+        {{ range .Items}}
+        <tr>
+            <td>{{ .Devicetype }}</td>
+            <td>{{ .Iddevice }}</td>
+            <td>{{ .Devicename }}</td>
+            <td>{{ .Oidname }}</td>
+            <td>{{ .Value }}</td>
+            <td> <a href="" class="view">View</a> </td>
+            <td> <a href="" class="delete">Delete</a> </td>
+        </tr>
+        {{ end}}
+</body>
+
+</html>
