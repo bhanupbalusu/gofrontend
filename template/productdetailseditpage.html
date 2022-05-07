@@ -5,13 +5,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="handle.js"></script>
   <title>Product Details Edit Page</title>
 </head>
 
 <body>
   <div>
-    <form action="http://localhost:5000/productdetailspage" method="POST" id="productdetailsentry">
+    <form action="http://localhost:5000/productdetailspage?{{.GobItemID}}" method="POST" id="productdetailsentry">
       <label for="pname">Product Name</label>
       <input type="text" id="pname" name="productname" placeholder="Name of product ..." value={{.GobInProductName}} />
       <label for="pdesc">Product Description</label>
@@ -120,7 +119,10 @@
         </div>
       </fieldset>
       <div class="submit">
-        <input type="submit" value="Add" form="productdetailsentry" />
+        <input type="submit" value="Save" form="productdetailsentry" />
+      </div>
+      <div class="submit">
+        <a href="http://localhost:5000/productdetailspage">Cancel</a>
       </div>
     </form>
   </div>

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/google/uuid"
 )
 
 var PDEdit *GobInProductDetails
@@ -16,8 +17,8 @@ func ProductDetailsEditPage(c *fiber.Ctx) error {
 	fmt.Println(string(bval))
 
 	for _, prod := range GobOutPDList {
-		if prod.GobInProductName == string(bval) {
-			PDEdit = PDEdit.EditGobInProductDetails(prod.GobInProductName,
+		if (prod.GobItemID).String() == string(bval) {
+			PDEdit = PDEdit.EditGobInProductDetails(prod.GobItemID, prod.GobInProductName,
 				prod.GobInDescription,
 				prod.GobInBulkQuantity.GobInVolume,
 				prod.GobInBulkQuantity.GobInBQUnits,
@@ -34,8 +35,9 @@ func ProductDetailsEditPage(c *fiber.Ctx) error {
 	return c.Render("productdetailseditpage", PDEdit)
 }
 
-func (PDEdit *GobInProductDetails) EditGobInProductDetails(pname, pdesc, bqvol, bqunits, amt, curr, perunit, ppunit string) *GobInProductDetails {
+func (PDEdit *GobInProductDetails) EditGobInProductDetails(id uuid.UUID, pname, pdesc, bqvol, bqunits, amt, curr, perunit, ppunit string) *GobInProductDetails {
 	return &GobInProductDetails{
+		id,
 		pname,
 		pdesc,
 		GobInBulkQuantity{
