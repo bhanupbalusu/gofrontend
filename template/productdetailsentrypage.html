@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script type="text/javascript" src="handle.js"></script>
     <title>Product Details Entry Page</title>
 </head>
 
@@ -22,7 +22,8 @@
                 <div class="row justify-content-start" style="padding-top:10px;">
                     <div class="col">
                         <label for="vol">Bulk Volume</label>
-                        <input type="text" id="vol" name="volume" placeholder="Total bulk volume ..." />
+                        <input type="text" id="vol" name="volume" placeholder="Total bulk volume ..."
+                            value="{{ .GobInBulkQuantity.GobInVolume }}" />
                     </div>
                     <div class="col">
                         <label for="unit">Unit</label>
@@ -74,10 +75,6 @@
             </div>
         </form>
     </div>
-
-    <script>
-        document.getElementById("productdetailsentry").reset();
-    </script>
 </body>
 
 </html>

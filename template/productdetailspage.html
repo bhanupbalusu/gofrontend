@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details Page</title>
+</head>
+
+<body>
+  <form action="http://localhost:5000/productdetailsentrypage" method="GET" id="AddProduct">
+  </form>
+  <button type="submit" form="AddProduct">Add Product</button>
+
+  <table>
+
+    <tr>
+      <th>Product Name</th>
+      <th>Product Description</th>
+      <th>Quantity</th>
+      <th>Units</th>
+      <th>Price Value</th>
+      <th>Currency</th>
+      <th>Qty PerUnit</th>
+      <th>Units</th>
+    </tr>
+    {{ range . }}
+    <tr>
+      <td>{{ .GobInProductName }}</td>
+      <td>{{ .GobInDescription }}</td>
+      <td>{{ .GobInBulkQuantity.GobInVolume }}</td>
+      <td>{{ .GobInBulkQuantity.GobInBQUnits }}</td>
+      <td>{{ .GobInPrice.GobInAmount }}</td>
+      <td>{{ .GobInPrice.GobInCurrency }}</td>
+      <td>{{ .GobInPrice.GobInPerUnit }}</td>
+      <td>{{ .GobInPrice.GobInPUnits }}</td>
+      <td> <a href="http://localhost:5000/productdetailseditpage?{{.GobInProductName}}" class="edit">Edit</a>
+      </td>
+      <td> <a href="#" class="delete">Delete</a> </td>
+    </tr>
+    {{ end }}
+  </table>
+
+  <form action="http://localhost:5000/scheduleinfopage?" method="GET" id="ScheduleInfo">
+  </form>
+  <button type="submit" form="ScheduleInfo">Next</button>
+
+</body>
+
+</html>

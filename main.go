@@ -22,17 +22,24 @@ type Devicevalue_view struct {
 }
 
 func main() {
-	engine := html.New("./static_files/html", ".html")
+
+	//engine := pug.New("./views", ".pug")
+	engine := html.New("./template", ".html")
 	app := fiber.New(fiber.Config{
 		Views: engine, //set as render engine
 	})
-	app.Static("/", "./static_files")
+
+	// app.Static("/", "./template", fiber.Static{
+	// 	Compress: true,
+	// })
 
 	app.Get("/homepage", homePage)
 	app.Get("/preorderrequestspage", preorderRequestsPage)
-	app.Get("/productdetailspage", c.AddProductsGetPage)
+	//app.Get("/productdetailspage", productDetailsGetPage)
+	app.Get("/productdetailspage", c.AddGobProductsGetPage)
+	app.Post("/productdetailspage", c.AddGobProductsPostPage)
 	app.Get("/productdetailsentrypage", c.ProductDetailsEntryPage)
-	app.Post("/productdetailspage", c.AddProductsModPage)
+	app.Get("/productdetailseditpage", c.ProductDetailsEditPage)
 	app.Get("/scheduleinfopage", scheduleInfoPage)
 
 	log.Fatal(app.Listen(":5000"))
@@ -43,19 +50,14 @@ func homePage(c *fiber.Ctx) error {
 	return c.Render("homepage", nil)
 }
 
-// func addProductsPage(c *fiber.Ctx) error {
-
-// 	return c.Render("productdetailspage", nil)
-// }
-
-// func productsDetailsEntryPage(c *fiber.Ctx) error {
-
-// 	return c.Render("productsdetailsentrypage", nil)
-// }
-
 func scheduleInfoPage(c *fiber.Ctx) error {
 
 	return c.Render("scheduleinfopage", nil)
+}
+
+func productDetailsGetPage(c *fiber.Ctx) error {
+
+	return c.Render("productdetailspage", nil)
 }
 
 func preorderRequestsPage(c *fiber.Ctx) error {
