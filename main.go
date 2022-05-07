@@ -38,6 +38,7 @@ func main() {
 	//app.Get("/productdetailspage", productDetailsGetPage)
 	app.Get("/productdetailspage", c.AddGobProductsGetPage)
 	app.Post("/productdetailspage", c.AddGobProductsPostPage)
+	app.Get("/productdetailsdeletepage", c.AddGobProductsDeletePage)
 	app.Get("/productdetailsentrypage", c.ProductDetailsEntryPage)
 	app.Get("/productdetailseditpage", c.ProductDetailsEditPage)
 	app.Get("/scheduleinfopage", scheduleInfoPage)

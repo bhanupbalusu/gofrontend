@@ -36,6 +36,7 @@ var GobOutPDList []GobInProductDetails
 func AddGobProductsGetPage(c *fiber.Ctx) error {
 	fmt.Println("Inside AddGobProductsGetPage")
 	if len(GobOutPDList) != 0 {
+		fmt.Println("length of GobOutPDList inside AddGobProductsGetPage --- ", len(GobOutPDList))
 		return c.Render("productdetailspage", GobOutPDList)
 	}
 	return c.Render("productdetailspage", nil)

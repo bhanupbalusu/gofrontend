@@ -12,7 +12,7 @@
   <div>
     <form action="http://localhost:5000/productdetailspage?{{.GobItemID}}" method="POST" id="productdetailsentry">
       <label for="pname">Product Name</label>
-      <input type="text" id="pname" name="productname" placeholder="Name of product ..." value={{.GobInProductName}} />
+      <input type="text" id="pname" name="productname" placeholder="Name of product ..." value={{.GobInProductName}}>
       <label for="pdesc">Product Description</label>
       <textarea name="productdesc" id="pdesc" rows="10" cols="30"
         placeholder="Describe about product ...">{{.GobInDescription}}</textarea>
@@ -22,7 +22,7 @@
           <div class="col">
             <label for="vol">Bulk Volume</label>
             <input type="text" id="vol" name="volume" placeholder="Total bulk volume ..."
-              value={{.GobInBulkQuantity.GobInVolume}} />
+              value={{.GobInBulkQuantity.GobInVolume}}>
           </div>
           <div class="col">
             <label for="unit">Unit</label>
@@ -52,7 +52,7 @@
           <div class="col" style="padding-top:10px;">
             <label for="price">Price Value</label>
             <input type="text" id="price" name="pricevalue" placeholder="Price charged ..."
-              value={{.GobInPrice.GobInAmount}} />
+              value={{.GobInPrice.GobInAmount}}>
           </div>
           <div class="col" style="padding-top:10px;">
             <label for="curr">Currency</label>
@@ -84,7 +84,7 @@
           <div class="col" style="padding-top:10px;">
             <label for="perunit">Base Quantity Value Per Unit</label>
             <input type="text" id="perunit" name="qtyperunit" placeholder="Minimum base quantity that is sold ..."
-              value={{.GobInPrice.GobInPerUnit}} />
+              value={{.GobInPrice.GobInPerUnit}}>
           </div>
           <div class="col" style="padding-top:10px;">
             <label for="unit">Unit</label>

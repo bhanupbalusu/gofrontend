@@ -37,7 +37,8 @@
       <td>{{ .GobInPrice.GobInPUnits }}</td>
       <td> <a href="http://localhost:5000/productdetailseditpage?{{.GobItemID}}" class="edit">Edit</a>
       </td>
-      <td> <a href="#" class="delete">Delete</a> </td>
+      <td> <a href="http://localhost:5000/productdetailsdeletepage?{{.GobItemID}}" class="delete"
+          data-method="DELETE">Delete</a> </td>
     </tr>
     {{ end }}
   </table>
