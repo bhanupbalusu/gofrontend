@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Schedule Entry Page</title>
+</head>
+
+<body>
+  <div>
+    <form action="http://localhost:5000/productdetailsschedulepage" method="POST" id="scheduleinfo">
+      <label for="startdate">Start Date and Time</label>
+      <input type="datetime-local" id="startdate" name="startdate" value="{{.Schedular.StartDate}}" />
+      <label for="enddate">End Date and Time</label>
+      <input type="datetime-local" id="enddate" name="enddate" placeholder="Name of product ..."
+        value="{{.Schedular.EndDate}}" />
+      <input type="submit" value="Save" form="scheduleinfo">
+      <div class="submit">
+        <a href="http://localhost:5000/productdetailsschedulepage">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
